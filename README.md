@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Anna Beatriz Granado — Site Profissional
 
-## Getting Started
+Site profissional para a Cirurgiã-Dentista **Anna Beatriz Granado** (CRO/RJ 55333), desenvolvido com Next.js, Tailwind CSS e TypeScript.
 
-First, run the development server:
+## Tecnologias
+
+- **Next.js 16** (App Router)
+- **Tailwind CSS v4**
+- **TypeScript**
+- Deploy na **Vercel**
+
+## Rodando localmente
 
 ```bash
+# Instalar dependências
+npm install
+
+# Iniciar servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build de produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Deploy na Vercel
 
-To learn more about Next.js, take a look at the following resources:
+### Opção 1 — Via CLI
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm i -g vercel
+vercel
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Opção 2 — Via GitHub (recomendado)
 
-## Deploy on Vercel
+1. Faça push do projeto para um repositório GitHub
+2. Acesse [vercel.com](https://vercel.com) e faça login
+3. Clique em **"Add New Project"**
+4. Importe o repositório
+5. A Vercel detecta Next.js automaticamente — clique em **Deploy**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Configurando domínio próprio na Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. No painel da Vercel, acesse o projeto → **Settings → Domains**
+2. Adicione o domínio (ex: `annabeatrizgranado.com.br`)
+3. Configure o DNS no seu registrador apontando para a Vercel
+4. A Vercel emite o certificado SSL automaticamente
+
+## Adicionando a foto de perfil
+
+No arquivo `components/Hero.tsx`, localize o comentário:
+
+```tsx
+{/* TODO: adicionar foto — colocar <Image> aqui quando tiver a foto de perfil */}
+```
+
+Substitua pelo componente de imagem:
+
+```tsx
+import Image from 'next/image'
+
+// Dentro do Hero right:
+<div className="relative w-full aspect-[3/4] mb-8 overflow-hidden">
+  <Image
+    src="/foto-anna.jpg"  // coloque a foto em /public/foto-anna.jpg
+    alt="Anna Beatriz Granado — Cirurgiã-Dentista"
+    fill
+    className="object-cover object-top"
+    priority
+  />
+</div>
+```
+
+Coloque a foto em `public/foto-anna.jpg`.
+
+## Estrutura do projeto
+
+```
+anna-beatriz-site/
+├── app/
+│   ├── layout.tsx      # Metadata, fontes, SEO
+│   ├── page.tsx        # Página principal
+│   └── globals.css     # Variáveis CSS e animações
+├── components/
+│   ├── Navbar.tsx
+│   ├── Hero.tsx
+│   ├── Sobre.tsx
+│   ├── Formacao.tsx
+│   ├── Especialidades.tsx
+│   ├── Diferenciais.tsx
+│   ├── Contato.tsx
+│   └── Footer.tsx
+├── public/             # Imagens estáticas
+├── next.config.ts
+└── vercel.json
+```
+
+## Contato da profissional
+
+- **WhatsApp:** (24) 98809-0016
+- **E-mail:** Granado1308@gmail.com
+- **Local:** Nova Friburgo, RJ — Salud Odontologia
+- **CRO/RJ:** 55333
