@@ -40,7 +40,6 @@ export default function WhatsAppButton() {
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? 'auto' : 'none',
         transform: visible ? 'translateY(0)' : 'translateY(12px)',
-        transition: 'opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease, border-radius 0.3s ease',
         display: 'flex',
         alignItems: 'center',
         gap: '0.6rem',
